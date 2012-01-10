@@ -1,0 +1,117 @@
+!!! 5
+%html
+  %head
+    %link(rel="stylesheet" type="text/css" href="/stylesheets/screen.css")
+    %link(rel="stylesheet" type="text/css" href="/css/ui-lightness/jq.css")
+    %link(rel="stylesheet" type="text/css" href="/css/colorpicker.css")
+    %link(rel="stylesheet" type="text/css" href="/css/layout.css")
+    %script(type="text/javascript" src="/js/jquery.js")
+    %script(type="text/javascript" src="/js/jquery-ui.js")
+    %script(type="text/javascript" src="/js/jquery.hoverIntent.js")
+    %script(type="text/javascript" src="/js/colorpicker.js")
+    %script(type="text/javascript" src="/js/underscore.js")
+    %script(type="text/javascript" src="/coffeescripts/jquery.blueprint.js")
+    %script(type="text/javascript" src="/coffeescripts/plugins.js")
+    %script(type="text/javascript" src="/coffeescripts/main.js")
+  %body
+    .container
+      .span-24(style='text-align: center;')
+        %h1 Layout creator.
+      .span-12.prepend-6.append-6.last
+        #preview
+          .span-3
+            .grid
+              .picker
+                .style
+                  Stl
+                  .menu.span-9
+                    .span-5.list
+                      %ul
+                        %li
+                          %a(href="#font_color") Font Color
+                        %li
+                          %a(href="#font_size") Font Size
+                        %li
+                          %a(href="#font_family") Font Family
+                        %li
+                          %a(href="#background_color") Background Color
+                        %li
+                          %a(href="#background_image") Background Image
+                    .span-4.last
+                      .preview
+                        #colorSelector
+                .plugin
+                  Plg
+                  .menu.span-9
+                    .span-5.list
+                      %ul
+                        %li
+                          %a(href="#video") Video
+                        %li
+                          %a(href="#poll") Poll
+                        %li
+                          %a(href="#twitter") Twitter
+                        %li
+                          %a(href="#rss") RSS Feed
+                        %li
+                          %a(href="#youtube") YouTube
+                        %li
+                          %a(href="#post_to_wall") Post to Wall
+                        %li
+                          %a(href="#send_message") Send a Message
+                        %li
+                          %a(href="#signup") Signup Form
+                        %li
+                          %a(href="#text") Text
+                        %li
+                          %a(href="#image") Image
+                        %li
+                          %a(href="#stories") Stories
+                        %li
+                          %a(href="#send_message") Send Button
+                        %li
+                          %a(href="#rawtext") Rawtext
+                        %li
+                          %a(href="#countdown") Countdown
+                        %li
+                          %a(href="#gallery") Gallery
+                        %li
+                          %a(href="#like") Button
+                        %li
+                          %a(href="#activity_stream") Activity Feed
+                        %li
+                          %a(href="#recommend") Recommendations
+                        %li
+                          %a(href="#like_box") Like Box
+                        %li
+                          %a(href="#comments") Comments
+                        %li
+                          %a(href="#live_stream") Livestream
+                    .span-4.last
+                      .preview
+                .split
+                  Spt
+                  .menu.span-9
+                    %ul
+                      %li
+                        %a(href="#split_horizontally") Split Horizontally
+                      %li
+                        %a(href="#split_vertically") Split Vertically
+                      %li
+                        %a(href="#merge_down") Merge Down
+                      %li
+                        %a(href="#merge_up") Merge Up
+                      %li
+                        %a(href="#merge_right") Merge Right
+                      %li
+                        %a(href="#merge_left") Merge Left
+                .code
+                  Cod
+              .split-v
+              .split-h
+          .span-6
+            .grid
+              hello
+              .split-v
+          .span-3.last
+            .grid hello
