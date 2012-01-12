@@ -69,8 +69,6 @@ Frank.export.path = "exported"
 # Sass Options:
 Frank.sass_options = { :load_paths => [ File.join(File.dirname(__FILE__), 'dynamic/stylesheets') ] }
 
-Compass.add_project_configuration './config.rb'
-
 # ----------------------
 # Initializers:
 #
