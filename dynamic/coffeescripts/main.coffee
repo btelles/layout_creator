@@ -25,6 +25,14 @@ $ ->
         $(currentGrid).updateSpanSize(stepsChanged)
         $(nextGrid).updateSpanSize(- stepsChanged)
         currentGrid.find('.split-v').css('left', '')
+    splitVertically: (evt) ->
+      evt.preventDefault()
+      span = $(this).closest('.grid').closest('.vertical_block, [class*=span-]').eq(0)
+      if $(span).attr('class').match(/vertical_block/)
+        span.after("<div class='vertical_block grid'>New Content block</div>")
+      else
+        $(span).wrapInner('<div class="vertical_block" />')
+        $(span).append('<div class="vertical_block grid">New Content block</div>')
 
   config =
     hoverIntent:
@@ -38,7 +46,12 @@ $ ->
 
   $('.picker > div').hoverIntent( config.hoverIntent )
   $('.plugin .menu ul li a').live('mouseover', pluginMethods.showCurrentPlugin)
+
+  # Resizing
   $('.grid .split-v').draggable(config.splitV)
+
+  # Spliting
+  $('a[href="#split_vertically"]').live('click', layoutMethods.splitVertically )
 
   $('#colorSelector').ColorPicker( color: '#0000ff',
     onShow: (colorPicker)->
