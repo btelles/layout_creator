@@ -6,6 +6,7 @@
     %link(rel="stylesheet" type="text/css" href="/css/colorpicker.css")
     %link(rel="stylesheet" type="text/css" href="/css/layout.css")
     %link(rel="stylesheet" type="text/css" href="/stylesheets/templates/basic.css")
+    %link(rel="stylesheet" type="text/css" href="/stylesheets/templates/dueling_videos.css")
     %script(type="text/javascript" src="/js/jquery.js")
     %script(type="text/javascript" src="/js/jquery-ui.js")
     %script(type="text/javascript" src="/js/jquery.hoverIntent.js")
@@ -20,10 +21,11 @@
       .span-24.last
         %h1 Wildfire Template Tool
       = render_partial 'top_nav'
-      #layout
-        = render_partial '/templates/basic'
-      #content
-        = render_partial '/templates/basic'
-      #preview
-        = render_partial '/templates/basic'
+      #previewer
+        #layout
+          = render_partial '/templates/dueling_videos'
+        #content
+          = render_partial '/templates/dueling_videos'
+        #preview
+          = render_partial '/templates/dueling_videos'
     = render_partial 'plugins/all'

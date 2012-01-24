@@ -8,16 +8,23 @@
 +blueprint-interaction
 +blueprint-form
 
+@import top_nav
+
 .container
   border: #999 solid
   border-width: 0px 1px
+#previewer
+  position: relative
+  top: 85px
+  height: 768px
 
-@import top_nav
 
-#preview
-  min-height: 320px
-  div
-    height: 100%
-    position: relative
+#layout, #content
+  display: none
+#layout, #content, #preview
+  position: absolute
+  top: 0
+  left: 0
+
 #hidden_plugins
   display: none
