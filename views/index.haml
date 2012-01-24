@@ -20,7 +20,10 @@
       .span-24.last
         %h1 Wildfire Template Tool
       = render_partial 'top_nav'
-      = yield
-
+      #layout
+        = render_partial '/templates/basic'
+      #content
+        = render_partial '/templates/basic'
+      #preview
+        = render_partial '/templates/basic'
     = render_partial 'plugins/all'
-
