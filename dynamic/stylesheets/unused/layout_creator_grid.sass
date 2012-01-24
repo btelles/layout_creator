@@ -1,0 +1,72 @@
+// A four-pane box centered on any div
+// with options for
+// - selecting plugins
+// - selecting styles
+// - splitting/merging the div
+// - showing the code of the div
+//
+// Render the "_grid.haml" partial inside the #preview 
+// to see it in full effect
+#preview div .grid
+  border-style: dotted
+  border-width: 1px
+  border-color: #333
+  border-collapse: collapse
+  position: relative
+  height: 100%
+  .picker
+    position: relative
+    max-width: 58px
+    height: 48px
+    margin: auto
+    z-index: 2
+    .style, .plugin, .code, .split
+      text-align: center
+      float: left
+      background-color: #999
+      margin: 2px
+      width: 25px
+      height: 20px
+      .menu
+        display: none
+        position: absolute
+        top: 54px
+        left: 0px
+        text-align: left
+        background-color: #eee
+        .list
+          height: auto
+        ul
+          list-style: none
+          padding-left: 0px
+          background-color: #eee
+          a
+            display: block
+            padding: 1px 2px
+        .preview
+          background-color: #eee
+          position: absolute
+          height: 100%
+          top: 0
+          right: 0
+      .preview
+        .plugin_preview
+          background-image: url('/images/plugin_background.png')
+          background-position: center 30px
+          background-repeat: no-repeat
+          background-color: #eee
+          height: auto
+          .caption
+            text-align: center
+          &:hover
+            background-image: url('/images/plugin_background_highlight.png')
+            cursor: pointer
+          h3
+            padding: 5px 0px 160px 0
+            margin: 0
+            text-align: center
+            background-repeat: no-repeat
+            background-position: center 55px
+          p
+            width: 178px
+            margin: 0

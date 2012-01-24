@@ -1,0 +1,20 @@
+// Used to show a vertical line 
+// between main sections on a template
+// to show, place a .split-v inside any div.span-xx
+//
+// Note: Using this class activates drag-and-drop,
+// width adjustments
+#preview div
+  height: 100%
+  position: relative
+    .split-v
+      background-image: url('/images/vertical.png')
+      background-repeat: repeat-y
+      width: 10px
+      position: absolute
+      right: -10px
+      top: 0
+      height: 100%
+      cursor: pointer
+      z-index: 1
+

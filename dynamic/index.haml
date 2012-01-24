@@ -1,8 +1,6 @@
-.preview
-  .span-24.last(style='z-index: 3')
-    #header
-  .span-6(style='z-index: 2')
-  .span-12(style='z-index: 2')
-  .span-6.last(style='z-index: 2')
-  .span-24.last(style='z-index: 1')
-    #footer
+#layout
+  = render_partial '/templates/basic'
+#content
+  = render_partial '/templates/basic'
+#preview
+  = render_partial '/templates/basic'
