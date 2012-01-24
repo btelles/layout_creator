@@ -19,25 +19,15 @@
         %h1 Layout creator.
       .span-24.last
         #preview
-          .span-6
-            .grid
-              .picker
-                .style
-                  Stl
-                  = render_partial 'style'
-                .plugin
-                  Plg
-                  = render_partial 'plugin'
-                .split
-                  Spt
-                  = render_partial 'split'
-                .code
-                  Cod
-              .split-v
-              .split-h
-          .span-12
-            .grid
-              hello
-              .split-v
-          .span-6.last
-            .grid hello
+          .span-24.last(style='z-index: 3')
+            #header
+              = render_partial 'grid'
+          .span-6(style='z-index: 2')
+            = render_partial 'grid'
+          .span-12(style='z-index: 2')
+            = render_partial 'grid'
+          .span-6.last(style='z-index: 2')
+            = render_partial 'grid'
+          .span-24.last(style='z-index: 1')
+            #footer
+              = render_partial 'grid'
