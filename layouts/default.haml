@@ -1,1 +1,21 @@
-= yield
+!!! 5
+%html
+  %head
+    %link(rel="stylesheet" type="text/css" href="/stylesheets/screen.css")
+    %link(rel="stylesheet" type="text/css" href="/css/ui-lightness/jq.css")
+    %link(rel="stylesheet" type="text/css" href="/css/colorpicker.css")
+    %link(rel="stylesheet" type="text/css" href="/css/layout.css")
+    %script(type="text/javascript" src="/js/jquery.js")
+    %script(type="text/javascript" src="/js/jquery-ui.js")
+    %script(type="text/javascript" src="/js/jquery.hoverIntent.js")
+    %script(type="text/javascript" src="/js/colorpicker.js")
+    %script(type="text/javascript" src="/js/underscore.js")
+    %script(type="text/javascript" src="/coffeescripts/jquery.blueprint.js")
+    %script(type="text/javascript" src="/coffeescripts/plugins.js")
+    %script(type="text/javascript" src="/coffeescripts/main.js")
+  %body
+    .container
+      .span-24.last
+        %h1 Wildfire Template Creator
+      = render_partial 'top_nav'
+      = yield

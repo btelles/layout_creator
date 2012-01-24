@@ -1,33 +1,8 @@
-!!! 5
-%html
-  %head
-    %link(rel="stylesheet" type="text/css" href="/stylesheets/screen.css")
-    %link(rel="stylesheet" type="text/css" href="/css/ui-lightness/jq.css")
-    %link(rel="stylesheet" type="text/css" href="/css/colorpicker.css")
-    %link(rel="stylesheet" type="text/css" href="/css/layout.css")
-    %script(type="text/javascript" src="/js/jquery.js")
-    %script(type="text/javascript" src="/js/jquery-ui.js")
-    %script(type="text/javascript" src="/js/jquery.hoverIntent.js")
-    %script(type="text/javascript" src="/js/colorpicker.js")
-    %script(type="text/javascript" src="/js/underscore.js")
-    %script(type="text/javascript" src="/coffeescripts/jquery.blueprint.js")
-    %script(type="text/javascript" src="/coffeescripts/plugins.js")
-    %script(type="text/javascript" src="/coffeescripts/main.js")
-  %body
-    .container
-      .span-24(style='text-align: center;')
-        %h1 Layout creator.
-      .span-24.last
-        #preview
-          .span-24.last(style='z-index: 3')
-            #header
-              = render_partial 'grid'
-          .span-6(style='z-index: 2')
-            = render_partial 'grid'
-          .span-12(style='z-index: 2')
-            = render_partial 'grid'
-          .span-6.last(style='z-index: 2')
-            = render_partial 'grid'
-          .span-24.last(style='z-index: 1')
-            #footer
-              = render_partial 'grid'
+.preview
+  .span-24.last(style='z-index: 3')
+    #header
+  .span-6(style='z-index: 2')
+  .span-12(style='z-index: 2')
+  .span-6.last(style='z-index: 2')
+  .span-24.last(style='z-index: 1')
+    #footer
