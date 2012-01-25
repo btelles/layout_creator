@@ -1,10 +1,20 @@
 #top_nav.span-24.last
-  .span-5
-    %select
+  .span-6
+    Channel:
+    %select.channel_chooser
       %option(value='facebook_tab') Facebook Tab
       %option(value='facebook_canvas') Facebook Canvas
       %option(value='microsite') Microsite
-  .prepend-10.span-2
+
+  .span-5
+    Template:
+    %select.template_chooser
+      %option(value='basic') Basic
+      %option(value='dueling_videos') Dueling Videos
+
+  .prepend-2.span-2
+    %a.save_button Save
+  .span-2
     %a.layout_button Layout
   .span-2
     %a.content_button Content

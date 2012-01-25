@@ -8,6 +8,10 @@ get '/' do
   haml :index
 end
 
+get '/templates/:name' do
+  haml :"templates/#{params[:name]}"
+end
+
 get '/stylesheets/templates/:name.css' do
   content_type 'text/css', :charset => 'utf-8'
   sass(:"stylesheets/templates/#{params[:name]}", Compass.sass_engine_options )

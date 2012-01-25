@@ -13,8 +13,8 @@
     %script(type="text/javascript" src="/js/colorpicker.js")
     %script(type="text/javascript" src="/js/underscore.js")
     %script(type="text/javascript" src="/js/ember.js")
-    %script(type="text/javascript" src="/coffeescripts/jquery.blueprint.js")
     %script(type="text/javascript" src="/coffeescripts/plugins.js")
+    %script(type="text/javascript" src="/coffeescripts/saving.js")
     %script(type="text/javascript" src="/coffeescripts/main.js")
   %body
     .container
@@ -22,10 +22,10 @@
         %h1 Wildfire Template Tool
       = render_partial 'top_nav'
       #previewer
+        #preview
+          = render_partial '/templates/dueling_videos'
         #layout
           = render_partial '/templates/dueling_videos'
         #content
-          = render_partial '/templates/dueling_videos'
-        #preview
           = render_partial '/templates/dueling_videos'
     = render_partial 'plugins/all'
