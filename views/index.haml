@@ -27,8 +27,14 @@
         #preview
         #layout
         #content
-    = render_partial 'plugins/all'
-    #edit_layout
-      %p Hi there
-    #edit_plugin
-      %p Hi there
+    #hidden_plugins
+      = render_partial 'plugins/all'
+      #edit_layout
+        %p Hi there
+      #edit_plugin
+        %a.delete_plugin(href="javascript:;") Delete this plugin
+        // %a.change_plugin(href="javascript:;") Change this plugin
+      #save
+        %p Sweet! You've saved your page!
+      #publish
+        %p Sweet! You've published your page!

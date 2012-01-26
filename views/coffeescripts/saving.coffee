@@ -1,33 +1,42 @@
-PM = {}
-PM.template =
-  name: 'basic'
+PM =
+  templateContent: ->
+    localStorage.getItem('page_template')
 
-  addNewContent: ->
-    me = this
-    $.get('/templates/'+ this.name, (data) ->
-      $(Editor.allPanels).append( data )
-      me.updatePlugins()
-    )
+  template:
+    name: 'basic'
 
-  updatePlugins: ->
-    $('#preview .plugin, #layout .plugin, #content .plugin').each( (item) ->
-      pluginClass   = $(this).attr('class').split(' ')[1]
-      pluginContent = $('#hidden_plugins .'+ pluginClass + '_plugin').html()
-      $(this).append(pluginContent)
-    )
+    addNewContent: ->
+      me = this
+      $.get('/templates/'+ this.name, (data) ->
+        $(Editor.allPanels).append( data )
+        me.updatePlugins()
+      )
 
-  updateWith: (name)->
-    this.name= name
-    $(Editor.allPanels).empty()
-    this.addNewContent()
+    updatePlugins: ->
+      $('#preview .plugin, #layout .plugin, #content .plugin').each( (item) ->
+        pluginClass   = $(this).attr('class').split(' ')[1]
+        pluginContent = $('#hidden_plugins .'+ pluginClass + '_plugin').html()
+        $(this).append(pluginContent) 
+      )
 
-  save: ->
-    preview = $('#preview')
-    localStorage.setItem('page_template', preview.html())
+    updateWith: (name)->
+      this.name= name
+      $(Editor.allPanels).empty()
+      this.addNewContent()
 
-  restoreTemplate: (name)->
-    content = localStorage.getItem('page_template')
-    $(Editor.allPanels).append(content)
+    publish: ->
+      $('#publish').dialog('open')
+
+    save: ->
+      preview = $('#preview')
+      localStorage.setItem('page_template', preview.html())
+      $('#save').dialog('open')
+
+    restore: (name)->
+      content = localStorage.getItem('page_template')
+      if content != null
+        $(Editor.allPanels).append(content)
+
 
 Editor =
   allPanels: '#preview, #layout, #content'
@@ -45,7 +54,6 @@ Editor =
   openPluginDialogFor: (pluginType) ->
     $('#edit_plugin').load('/plugin_dialogs/generic', ->
       $('#edit_plugin').dialog({title: "Settings for "+pluginType+" plugin"})
-      $('#edit_plugin').dialog('open')
     )
 
   openLayoutDialogFor: (layoutItem) ->
@@ -73,9 +81,28 @@ Editor =
   editPlugin: (evt) ->
     pluginType = Editor.pluginType(this)
     Editor.openPluginDialogFor(pluginType)
+    Editor.currentPlugin = $(this).closest('.plugin')
 
   editLayout: (evt) ->
     Editor.openLayoutDialogFor(this)
+
+  deleteCurrentPlugin: (evt) ->
+    Editor.deletePlugin(Editor.currentPlugin)
+
+  deletePlugin: (plugin) ->
+    pluginType = Editor.pluginType($(plugin))
+    pluginId   = Editor.pluginId($(plugin))
+    $('#layout, #preview, #content')
+      .find('.'+pluginId)
+      .removeClass(pluginType)
+      .empty()
+    PM.template.save
+
+  pluginId: (plugin) ->
+    pluginIds = $.grep($(plugin).attr('class').split(' '), (item) ->
+      item.match(/plugin_\d*/)
+    )
+    pluginIds.join(',')
 
 $ ->
   methods =
@@ -85,10 +112,16 @@ $ ->
       PM.template.updateWith($(this).val())
 
 
+  PM.template.restore()
   $('.save_button').live('click', PM.template.save)
+  $('.publish_button').live('click', PM.template.publish)
 
   $('.template_chooser').live('change', methods.updateTemplate)
 
   $('.layout_button, .content_button, .preview_button').live('click', Editor.showPanel)
   $('.plugin_editor').live('click', Editor.editPlugin)
   $('.layout_editor').live('click', Editor.editLayout)
+  $('#save').dialog({autoOpen: false, title: "You've saved the page."})
+  $('#publish').dialog({autoOpen: false, title: "You've published the page."})
+  $('a.delete_plugin').live('click', Editor.deleteCurrentPlugin)
+
