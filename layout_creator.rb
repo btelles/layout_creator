@@ -12,6 +12,14 @@ get '/templates/:name' do
   haml :"templates/#{params[:name]}"
 end
 
+get '/layout_dialogs/:name' do
+  haml :"layout_dialogs/#{params[:name]}"
+end
+
+get '/plugin_dialogs/:name' do
+  haml :"plugin_dialogs/#{params[:name]}"
+end
+
 get '/stylesheets/templates/:name.css' do
   content_type 'text/css', :charset => 'utf-8'
   sass(:"stylesheets/templates/#{params[:name]}", Compass.sass_engine_options )
