@@ -29,11 +29,16 @@
     #hidden_plugins
       = render_partial 'plugins/all'
       #edit_layout
-        %p Hi there
+        %p Hi there, I didn't load correctly!
       #edit_plugin
-        %a.delete_plugin(href="javascript:;") Delete this plugin
-        // %a.change_plugin(href="javascript:;") Change this plugin
+        %p Hi there, I didn't load correctly!
       #save
         %p Sweet! You've saved your page!
       #publish
         %p Sweet! You've published your page!
+      #change_plugin
+        %p
+          Hover over a plugin name to to see a description.
+          %br
+          Click the plugin link to select it.
+        = render_partial 'plugin'
