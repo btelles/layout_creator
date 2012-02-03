@@ -33,3 +33,46 @@ form, p
 
 .center
   text-align: center
+
+.menu
+  position: absolute
+  top: 54px
+  left: 0px
+  text-align: left
+  background-color: #eee
+  .list
+    height: auto
+  ul
+    list-style: none
+    padding-left: 0px
+    background-color: #eee
+    a
+      display: block
+      padding: 1px 2px
+  .preview
+    background-color: #eee
+    position: absolute
+    height: 100%
+    top: 0
+    right: 0
+.preview
+  .plugin_preview
+    background-image: url('/images/plugin_background.png')
+    background-position: center 30px
+    background-repeat: no-repeat
+    background-color: #eee
+    height: auto
+    .caption
+      text-align: center
+    &:hover
+      background-image: url('/images/plugin_background_highlight.png')
+      cursor: pointer
+    h3
+      padding: 5px 0px 160px 0
+      margin: 0
+      text-align: center
+      background-repeat: no-repeat
+      background-position: center 55px
+    p
+      width: 178px
+      margin: 0
