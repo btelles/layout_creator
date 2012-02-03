@@ -113,14 +113,10 @@ $ ->
 
 
   PM.template.restore()
-  $('.save_button').live('click', PM.template.save)
-  $('.publish_button').live('click', PM.template.publish)
 
   $('.template_chooser').live('change', methods.updateTemplate)
 
   $('.layout_button, .content_button, .preview_button').live('click', Editor.showPanel)
-  $('.plugin_editor').live('click', Editor.editPlugin)
-  $('.layout_editor').live('click', Editor.editLayout)
   $('#save').dialog({autoOpen: false, title: "You've saved the page."})
   $('#publish').dialog({autoOpen: false, title: "You've published the page."})
   $('a.delete_plugin').live('click', Editor.deleteCurrentPlugin)
