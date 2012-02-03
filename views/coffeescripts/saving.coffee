@@ -55,6 +55,11 @@ Editor =
     $('#edit_plugin').load('/plugin_dialogs/generic', ->
       $('#edit_plugin').dialog({title: "Settings for "+pluginType+" plugin"})
     )
+  showPluginSettingsFor: (pluginType) ->
+    this.showSidebarFor('plugin')
+    $('#sidebar_plugin_content').load('/plugin_dialogs/generic', ->
+      # $('#edit_plugin').dialog({title: "Settings for "+pluginType+" plugin"})
+    )
 
   openLayoutDialogFor: (layoutItem) ->
     $('#edit_layout').load('/layout_dialogs/generic', ->
@@ -69,6 +74,10 @@ Editor =
     Editor.prepareLayout() if panelToShow == 'layout'
     Editor.prepareContent() if panelToShow == 'content'
 
+  showSidebarFor: (sidebarSection) ->
+    $('.container > .sidebar > *').hide()
+    $('.container > .sidebar > .'+sidebarSection).show()
+
   pluginDialog: ->
     $('#edit_plugin').dialog(
       autoOpen: false
@@ -80,7 +89,7 @@ Editor =
 
   editPlugin: (evt) ->
     pluginType = Editor.pluginType(this)
-    Editor.openPluginDialogFor(pluginType)
+    Editor.showPluginSettingsFor(pluginType)
     Editor.currentPlugin = $(this).closest('.plugin')
 
   editLayout: (evt) ->
@@ -145,7 +154,7 @@ $ ->
   #Clicks
   $('.save_button').live('click', PM.template.save)
   $('.publish_button').live('click', PM.template.publish)
-  $('.plugin_editor').live('click', Editor.editPlugin)
+  $('#preview .plugin').live('click', Editor.editPlugin)
   $('.layout_editor').live('click', Editor.editLayout)
   $('a.delete_plugin').live('click', Editor.deleteCurrentPlugin)
   $('a.change_plugin').live('click', Editor.showChangePluginDialog)
