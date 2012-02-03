@@ -22,10 +22,32 @@
       .span-24.last
         %h1 Wildfire Template Tool
       = render_partial 'top_nav'
-      #previewer
-        #preview
-        #layout
-        #content
+      .span-6.sidebar
+        .plugin
+          #sidebar_tabs
+            %ul
+              %li
+                %a(href="#sidebar_plugin_content") Content
+              %li
+                %a(href="#sidebar_plugin_settings") Settings
+            #sidebar_plugin_content
+              %h1 Content
+            #sidebar_plugin_settings
+              %h1 Settings
+        .file_list
+          %h2 HTML / Liquid
+          %ul.html_liquid
+          %h2 CSS
+          %ul.css
+          %h2 Images
+          %ul.images
+
+
+      .span-18.last
+        #previewer
+          #preview
+          #layout
+          #content
     #hidden_plugins
       = render_partial 'plugins/all'
       #edit_layout
