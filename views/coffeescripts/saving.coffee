@@ -104,6 +104,25 @@ Editor =
     )
     pluginIds.join(',')
 
+  showChangePluginDialog: (evt) ->
+    $('.ui-dialog-content').dialog('close')
+    $('#change_plugin').dialog('open')
+
+PluginManager =
+  showCurrentPlugin: (evt) ->
+    plugin = $.plugins()[$(this).attr('href').replace(/#/,'')]
+    style = plugin.style
+    title = plugin.title
+    text = plugin.text
+    $('#change_plugin .preview').html("<div class='plugin_preview'><h3 style='#{style}'>#{plugin.title}</h3><div class='plugin_icon'><p class='caption'>(click to select)</p><p>#{text}</p></div>")
+
+  selectedPlugin: (elem) ->
+    elem.attr('href').replace(/#/,'')
+
+  selectPlugin: (evt) ->
+    newPluginType = PluginManager.selectedPlugin($(this))
+    Editor.changeCurrentPluginTo(newPluginType)
+
 $ ->
   methods =
     savePage: ->
@@ -117,7 +136,18 @@ $ ->
   $('.template_chooser').live('change', methods.updateTemplate)
 
   $('.layout_button, .content_button, .preview_button').live('click', Editor.showPanel)
+
+  #Dialogs
   $('#save').dialog({autoOpen: false, title: "You've saved the page."})
   $('#publish').dialog({autoOpen: false, title: "You've published the page."})
-  $('a.delete_plugin').live('click', Editor.deleteCurrentPlugin)
+  $('#change_plugin').dialog({autoOpen: false, title: "Change the selected Plugin", width: 500, minHeight: 530})
 
+  #Clicks
+  $('.save_button').live('click', PM.template.save)
+  $('.publish_button').live('click', PM.template.publish)
+  $('.plugin_editor').live('click', Editor.editPlugin)
+  $('.layout_editor').live('click', Editor.editLayout)
+  $('a.delete_plugin').live('click', Editor.deleteCurrentPlugin)
+  $('a.change_plugin').live('click', Editor.showChangePluginDialog)
+  $('.menu ul li a').live('mouseover', PluginManager.showCurrentPlugin)
+  $('#sidebar_tabs').tabs()
