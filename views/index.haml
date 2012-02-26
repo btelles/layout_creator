@@ -2,20 +2,35 @@
 %html
   %head
     %link(rel="stylesheet" type="text/css" href="/stylesheets/screen.css")
+    %link(rel="stylesheet" type="text/css" href="/stylesheets/layout.css")
     %link(rel="stylesheet" type="text/css" href="/css/smoothness/jq.css")
-    %link(rel="stylesheet" type="text/css" href="/css/colorpicker.css")
-    %link(rel="stylesheet" type="text/css" href="/css/layout.css")
     %script(type="text/javascript" src="/js/jquery.js")
     %script(type="text/javascript" src="/js/jquery-ui.js")
     %script(type="text/javascript" src="/js/jquery.hoverIntent.js")
     %script(type="text/javascript" src="/js/underscore.js")
     %script(type="text/javascript" src="/js/ember.js")
+    %script(type="text/javascript" src="/coffeescripts/plugin.js")
   %body
     .container
       .span-24.last
         %h1 Wildfire Template Tool
       = render_partial 'top_nav'
       %header.span-24.last
+        .box
+          Header
       .span-12.left-sidebar
-      .span-12.right-sidebar
+        .box
+          Plugin 1
+          %script(type='text/x-handlebars')
+            {{App.firstPlugin.name}}
+          %a.settings(href='#')='+'
+      .span-12.right-sidebar.last
+        .box
+          Plugin 2
+          %a.settings(href='#')='+'
       %footer.span-24.last
+        .box
+          Footer
+    .hidden_dialogs
+      .plugin_settings
+        oaeuaoeu
