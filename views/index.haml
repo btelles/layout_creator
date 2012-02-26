@@ -15,43 +15,7 @@
       .span-24.last
         %h1 Wildfire Template Tool
       = render_partial 'top_nav'
-      .span-6.sidebar
-        .plugin
-          #sidebar_tabs
-            %ul
-              %li
-                %a(href="#sidebar_plugin_content") Content
-              %li
-                %a(href="#sidebar_plugin_settings") Settings
-            #sidebar_plugin_content
-              %h1 Content
-            #sidebar_plugin_settings
-              %h1 Settings
-        .file_list
-          %h2 HTML / Liquid
-          %ul.html_liquid
-          %h2 CSS
-          %ul.css
-          %h2 Images
-          %ul.images
-
-
-      .span-18.last
-        #previewer
-          #preview
-          #layout
-          #content
-    #hidden_plugins
-      #edit_layout
-        %p Hi there, I didn't load correctly!
-      #edit_plugin
-        %p Hi there, I didn't load correctly!
-      #save
-        %p Sweet! You've saved your page!
-      #publish
-        %p Sweet! You've published your page!
-      #change_plugin
-        %p
-          Hover over a plugin name to to see a description.
-          %br
-          Click the plugin link to select it.
+      %header.span-24.last
+      .span-12.left-sidebar
+      .span-12.right-sidebar
+      %footer.span-24.last
