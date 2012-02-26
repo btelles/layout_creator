@@ -21,8 +21,10 @@
       .span-12.left-sidebar
         .box
           Plugin 1
-          %script(type='text/x-handlebars')
-            {{App.firstPlugin.name}}
+          :plain
+            <script type='text/x-handlebars'>
+              {{App.firstPlugin.name}}
+            </script>
           %a.settings(href='#')='+'
       .span-12.right-sidebar.last
         .box
@@ -33,4 +35,7 @@
           Footer
     .hidden_dialogs
       .plugin_settings
-        oaeuaoeu
+        :plain
+          <script type="text/x-handlebars">
+            {{view Ember.TextField valueBinding="App.firstPlugin.name" }}
+          </script>
