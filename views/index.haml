@@ -5,14 +5,9 @@
     %link(rel="stylesheet" type="text/css" href="/css/smoothness/jq.css")
     %link(rel="stylesheet" type="text/css" href="/css/colorpicker.css")
     %link(rel="stylesheet" type="text/css" href="/css/layout.css")
-    %link(rel="stylesheet" type="text/css" href="/stylesheets/templates/panels.css")
-    %link(rel="stylesheet" type="text/css" href="/stylesheets/templates/basic.css")
-    %link(rel="stylesheet" type="text/css" href="/stylesheets/templates/dueling_videos.css")
-    %link(rel="stylesheet" type="text/css" href="/stylesheets/plugins.css")
     %script(type="text/javascript" src="/js/jquery.js")
     %script(type="text/javascript" src="/js/jquery-ui.js")
     %script(type="text/javascript" src="/js/jquery.hoverIntent.js")
-    %script(type="text/javascript" src="/js/colorpicker.js")
     %script(type="text/javascript" src="/js/underscore.js")
     %script(type="text/javascript" src="/js/ember.js")
   %body
@@ -47,7 +42,6 @@
           #layout
           #content
     #hidden_plugins
-      = render_partial 'plugins/all'
       #edit_layout
         %p Hi there, I didn't load correctly!
       #edit_plugin
@@ -61,4 +55,3 @@
           Hover over a plugin name to to see a description.
           %br
           Click the plugin link to select it.
-        = render_partial 'plugin'
